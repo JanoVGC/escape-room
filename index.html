@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESCAPE WC - Pepe Prisas</title>
+  <link rel="icon" href="assets/toilet.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="cabinet">
+    <h1>ESCAPE WC</h1>
+    <p class="sub">Pepe Prisas busca un v&aacute;ter</p>
+
+    <div class="hud" aria-label="Estado del juego">
+      <div class="chip">NIVEL <span id="hudLevel">1</span></div>
+      <div class="chip" id="chipKeys"><img src="assets/key.svg" alt="Llaves"> x<span id="hudKeys">0</span></div>
+      <div class="chip" id="chipPaper"><img src="assets/paper.svg" alt="Papel" id="paperIcon"> <span id="hudPaper">NO</span></div>
+      <div class="chip">TIEMPO <span id="hudTime">--</span></div>
+      <button class="chip btn" id="muteBtn" type="button" aria-label="Activar o quitar sonido">SONIDO: SI</button>
+    </div>
+
+    <div class="urg" title="Urgencia">
+      <span class="urg-label">PRISA</span>
+      <div class="bar"><div id="urgFill"></div></div>
+    </div>
+
+    <div class="screen">
+      <canvas id="game" width="480" height="352" role="img" aria-label="Laberinto del juego"></canvas>
+      <div id="overlay" class="overlay">
+        <h2 id="ovTitle">ESCAPE WC</h2>
+        <p id="ovText"></p>
+        <button id="ovBtn" class="btn big" type="button">PULSA ENTER</button>
+      </div>
+    </div>
+
+    <p id="msg" class="msg" aria-live="polite">&nbsp;</p>
+
+    <div class="dpad" aria-label="Controles t&aacute;ctiles">
+      <button type="button" data-dir="up" aria-label="Arriba">&#9650;</button>
+      <button type="button" data-dir="left" aria-label="Izquierda">&#9664;</button>
+      <button type="button" data-dir="down" aria-label="Abajo">&#9660;</button>
+      <button type="button" data-dir="right" aria-label="Derecha">&#9654;</button>
+    </div>
+
+    <p class="help">FLECHAS o WASD: mover &middot; ENTER: empezar &middot; M: sonido</p>
+  </main>
+
+  <script src="maze.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

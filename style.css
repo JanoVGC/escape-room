@@ -1,0 +1,192 @@
+:root {
+  --bg: #0b0b14;
+  --ink: #f4f1de;
+  --gold: #f1c40f;
+  --green: #2ecc71;
+  --red: #e74c3c;
+  --panel: #1a1830;
+  --edge: #6c5ce7;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  -webkit-font-smoothing: none;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.cabinet { width: 100%; max-width: 820px; }
+
+h1 {
+  margin: 4px 0 0;
+  text-align: center;
+  font-size: clamp(28px, 7vw, 48px);
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-shadow: 3px 3px 0 #b03a2e, 6px 6px 0 #000;
+}
+
+.sub {
+  margin: 4px 0 12px;
+  text-align: center;
+  color: var(--green);
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.hud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: var(--panel);
+  border: 3px solid var(--edge);
+  box-shadow: 3px 3px 0 #000;
+  font: inherit;
+  font-weight: bold;
+  color: var(--ink);
+}
+
+.chip img { width: 20px; height: 20px; image-rendering: pixelated; }
+.chip.off { opacity: .4; }
+.chip[hidden] { display: none; }
+
+.btn {
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.btn:hover { background: #2a2650; }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #000; }
+#muteBtn { margin-left: auto; }
+
+.urg { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.urg-label { font-weight: bold; color: var(--red); text-shadow: 2px 2px 0 #000; }
+.bar {
+  flex: 1;
+  height: 20px;
+  border: 3px solid var(--ink);
+  background: #000;
+  box-shadow: 3px 3px 0 #000;
+}
+#urgFill { height: 100%; width: 0; background: var(--green); }
+
+.screen {
+  position: relative;
+  border: 6px solid var(--edge);
+  background: #000;
+  box-shadow: 0 0 0 4px #000, 0 0 30px rgba(108, 92, 231, .5);
+  overflow: hidden;
+}
+
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.2) 2px 3px);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  touch-action: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(8, 6, 24, .86);
+}
+.overlay.hidden { display: none; }
+.overlay h2 {
+  margin: 0;
+  font-size: clamp(26px, 6vw, 44px);
+  color: var(--gold);
+  text-shadow: 3px 3px 0 #b03a2e, 5px 5px 0 #000;
+}
+.overlay p { margin: 0; max-width: 520px; line-height: 1.5; text-shadow: 2px 2px 0 #000; }
+.btn.big {
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: bold;
+  color: #000;
+  background: var(--gold);
+  border: 4px solid #fff;
+  box-shadow: 4px 4px 0 #000;
+  animation: blink 1s steps(2) infinite;
+}
+.btn.big:hover { background: #ffe066; }
+
+@keyframes blink { 50% { opacity: .55; } }
+
+.msg {
+  min-height: 1.6em;
+  margin: 10px 0 6px;
+  text-align: center;
+  color: var(--gold);
+  font-weight: bold;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.dpad {
+  display: none;
+  grid-template-columns: repeat(3, 64px);
+  grid-template-areas: ". up ." "left down right";
+  gap: 6px;
+  justify-content: center;
+  margin: 6px 0;
+}
+.dpad button[data-dir="up"] { grid-area: up; }
+.dpad button[data-dir="left"] { grid-area: left; }
+.dpad button[data-dir="down"] { grid-area: down; }
+.dpad button[data-dir="right"] { grid-area: right; }
+.dpad button {
+  height: 56px;
+  font-size: 22px;
+  color: var(--ink);
+  background: var(--panel);
+  border: 4px solid var(--edge);
+  box-shadow: 3px 3px 0 #000;
+  touch-action: none;
+}
+.dpad button:active { background: #2a2650; transform: translate(2px, 2px); }
+
+@media (pointer: coarse), (max-width: 640px) {
+  .dpad { display: grid; }
+}
+
+.help { text-align: center; font-size: 12px; color: #9a96c8; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn.big { animation: none; }
+}

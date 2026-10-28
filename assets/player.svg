@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="32" height="32" shape-rendering="crispEdges">
+  <!-- pelo verde loco -->
+  <g fill="#2ecc40">
+    <rect x="4" y="0" width="1" height="1"/>
+    <rect x="7" y="0" width="2" height="1"/>
+    <rect x="11" y="0" width="1" height="1"/>
+    <rect x="3" y="1" width="10" height="2"/>
+    <rect x="2" y="2" width="1" height="2"/>
+    <rect x="13" y="2" width="1" height="2"/>
+  </g>
+  <!-- cara -->
+  <rect x="4" y="3" width="8" height="5" fill="#f8c89a"/>
+  <!-- gafas -->
+  <rect x="4" y="4" width="3" height="2" fill="#ffffff"/>
+  <rect x="9" y="4" width="3" height="2" fill="#ffffff"/>
+  <rect x="7" y="4" width="2" height="1" fill="#111111"/>
+  <rect x="5" y="5" width="1" height="1" fill="#111111"/>
+  <rect x="10" y="5" width="1" height="1" fill="#111111"/>
+  <!-- boca apretada -->
+  <rect x="6" y="7" width="4" height="1" fill="#111111"/>
+  <!-- gota de sudor -->
+  <rect x="13" y="4" width="1" height="2" fill="#5dade2"/>
+  <rect x="14" y="6" width="1" height="1" fill="#5dade2"/>
+  <!-- camiseta -->
+  <rect x="3" y="8" width="10" height="4" fill="#e63946"/>
+  <rect x="7" y="8" width="2" height="1" fill="#f8c89a"/>
+  <rect x="2" y="9" width="1" height="2" fill="#f8c89a"/>
+  <rect x="13" y="9" width="1" height="2" fill="#f8c89a"/>
+  <!-- pantalon -->
+  <rect x="4" y="12" width="8" height="1" fill="#3a5fcd"/>
+  <rect x="4" y="13" width="3" height="1" fill="#3a5fcd"/>
+  <rect x="9" y="13" width="3" height="1" fill="#3a5fcd"/>
+  <!-- zapatos -->
+  <rect x="3" y="14" width="4" height="2" fill="#7b4a1e"/>
+  <rect x="9" y="14" width="4" height="2" fill="#7b4a1e"/>
+</svg>
